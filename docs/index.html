@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>【Instagram特典】スマホ録音を入れるだけ！AI全自動・文字起こし＆カレンダー連携スターターガイド</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #7c3aed;
+      --accent-light: #f5f3ff;
+      --emerald: #059669;
+      --emerald-light: #ecfdf5;
+      --amber: #d97706;
+      --amber-light: #fffbeb;
+      --border: #e2e8f0;
+      --radius: 16px;
+      --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Sticky Top Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+    }
+    .top-bar-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .badge-gift {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd6fe;
+    }
+    .btn-print {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-print:hover {
+      background: var(--surface-soft);
+      border-color: #cbd5e1;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #1e1b4b 100%);
+      color: #ffffff;
+      padding: 40px 20px 36px;
+      margin: 16px auto 24px;
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #e0e7ff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 5vw, 31px);
+      line-height: 1.35;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 span {
+      color: #60a5fa;
+    }
+    .hero-lead {
+      font-size: 14.5px;
+      color: #cbd5e1;
+      margin-bottom: 22px;
+    }
+    .hero-pills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+    }
+    .hero-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+    .hero-pill strong {
+      display: block;
+      color: #93c5fd;
+      font-size: 13.5px;
+      margin-bottom: 2px;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Before / After Grid */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+      .ba-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .ba-box {
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 13.5px;
+    }
+    .ba-before {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      color: #881337;
+    }
+    .ba-after {
+      background: var(--emerald-light);
+      border: 1px solid #a7f3d0;
+      color: #064e3b;
+    }
+    .ba-label {
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .ba-before .ba-label {
+      background: #ffe4e6;
+      color: #be123c;
+    }
+    .ba-after .ba-label {
+      background: #d1fae5;
+      color: #047857;
+    }
+    .ba-box ul {
+      padding-left: 18px;
+    }
+    .ba-box li {
+      margin-bottom: 6px;
+    }
+
+    /* Flow Diagram */
+    .flow-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .flow-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      position: relative;
+    }
+    .flow-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid #bfdbfe;
+    }
+    .flow-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .flow-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+    .flow-tag.auto {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .flow-body p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* Calendar UI Mock */
+    .cal-mock-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media (max-width: 640px) {
+      .cal-mock-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .cal-card {
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+    .cal-card.public {
+      border-left: 5px solid var(--primary);
+    }
+    .cal-card.private {
+      border-left: 5px solid var(--accent);
+      background: #faf5ff;
+    }
+    .cal-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .cal-type {
+      color: var(--primary);
+    }
+    .cal-card.private .cal-type {
+      color: var(--accent);
+    }
+    .cal-vis {
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+    .cal-card.private .cal-vis {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
+    .cal-title {
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .cal-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      white-space: pre-line;
+    }
+
+    /* Folder Tree */
+    .folder-tree {
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+    .folder-tree .comment {
+      color: #94a3b8;
+    }
+    .folder-tree .hl-in {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .folder-tree .hl-out {
+      color: #4ade80;
+      font-weight: 700;
+    }
+
+    /* Name Customizer Box */
+    .customizer-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+      border: 2px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+    .customizer-box label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1e3a8a;
+      margin-bottom: 6px;
+    }
+    .customizer-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .customizer-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 14px;
+      border: 1px solid #93c5fd;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #fff;
+      color: var(--text);
+    }
+    .customizer-hint {
+      font-size: 12px;
+      color: #475569;
+      margin-top: 6px;
+    }
+
+    /* Prompt Copy Block */
+    .prompt-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+    .prompt-header {
+      background: var(--surface-soft);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .prompt-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .prompt-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .prompt-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .btn-copy {
+      appearance: none;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .btn-copy:hover {
+      background: var(--primary-dark);
+    }
+    .btn-copy:active {
+      transform: scale(0.98);
+    }
+    .btn-copy.copied {
+      background: var(--emerald);
+    }
+    .prompt-pre {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      line-height: 1.65;
+      padding: 16px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    /* Quality Gate Table */
+    .qg-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .qg-table th,
+    .qg-table td {
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .qg-table th {
+      background: var(--surface-soft);
+      font-weight: 700;
+    }
+    .qg-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 12px;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .faq-q {
+      font-weight: 800;
+      font-size: 14.5px;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      gap: 8px;
+    }
+    .faq-q::before {
+      content: "Q.";
+      color: var(--primary);
+      font-weight: 900;
+    }
+    .faq-a {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      padding-left: 24px;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #fff;
+        padding-bottom: 0;
+      }
+      .top-bar,
+      .btn-copy,
+      .customizer-box {
+        display: none !important;
+      }
+      .hero {
+        background: #0f172a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        margin-top: 0;
+      }
+      .section-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      .prompt-pre {
+        max-height: none;
+        overflow: visible;
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1px solid #cbd5e1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <span class="badge-gift">🎁 Instagramフォロワー限定プレゼント</span>
+      <button class="btn-print" onclick="window.print()">🖨️ PDFとして保存 / 印刷</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-eyebrow">ANTIGRAVITY × GOOGLE DRIVE × GOOGLE CALENDAR</div>
+      <h1>スマホ録音を入れるだけ！<br><span>AI全自動・文字起こし＆カレンダー連携</span><br>完全導入スターターガイド</h1>
+      <p class="hero-lead">
+        日中はスマホの通話・商談録音をGoogleドライブの「未文字起こし」フォルダに放り込むだけ。<br>
+        毎晩寝ている間にAIが無分割で一言一句すべて文字起こし＆要約し、<strong>次回アポは時間枠で、客先からの宿題は「自分だけ見える非公開予定」でGoogleカレンダーに自動登録</strong>します。
+      </p>
+      <div class="hero-pills">
+        <div class="hero-pill">
+          <strong>① 長尺でも分割不要・全文取得</strong>
+          10分超の通話も5分刻みの分割なしで、挨拶の最後まで1文字も漏らさず文字起こし。
+        </div>
+        <div class="hero-pill">
+          <strong>② 追加API課金ゼロ</strong>
+          Antigravity内蔵のマルチモーダル音声認識（Gemini 3.8）を直接使うため外部API費用0円。
+        </div>
+        <div class="hero-pill">
+          <strong>③ アポ＆非公開宿題を自動登録</strong>
+          商談アポは時間枠で共有、顧客からの宿題は「非公開の終日予定」に箇条書きで自動登録。
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: 全体像とBefore/After -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <h2 class="section-title">この仕組みで何が変わるのか？（全体像）</h2>
+      </div>
+      <p class="section-desc">
+        「録音したまま聞き返せない」「通話中にメモを取るのが大変」「言われた宿題をうっかり忘れる」をゼロにする全自動パイプラインです。
+      </p>
+
+      <div class="ba-grid">
+        <div class="ba-box ba-before">
+          <span class="ba-label">BEFORE（これまでの悩み）</span>
+          <ul>
+            <li>音声が長すぎて5分ごとに分割する手間がかかる</li>
+            <li>AIが勝手に要約してしまい、細かい発言やニュアンスが消える</li>
+            <li>通話後に自分でカレンダーを開いてアポやTODOを手入力している</li>
+            <li>共有カレンダーに細かいTODOを書くと他の社員に丸見えになる</li>
+          </ul>
+        </div>
+        <div class="ba-box ba-after">
+          <span class="ba-label">AFTER（導入後のルーティン）</span>
+          <ul>
+            <li><strong>あなたがやるのは「未文字起こしフォルダに録音を入れる」だけ</strong></li>
+            <li>毎夜01:00に無分割で<strong>逐語全文＋要約・決定事項・TODO</strong>を自動作成</li>
+            <li>次回アポは時間枠付きでGoogleカレンダーへ自動登録</li>
+            <li>お客様からの宿題は<strong>非公開（Private）の終日予定</strong>として箇条書き登録</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-icon">📱</div>
+          <div class="flow-body">
+            <h3>Step 0：スマホから録音をアップロード <span class="flow-tag">あなたの操作はこれだけ</span></h3>
+            <p>通話録音や商談録音（.m4a等）を、Googleドライブの <code>音声データ/未文字起こし/</code> フォルダに入れます。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">🛡️</div>
+          <div class="flow-body">
+            <h3>Step 1：プライベート通話の自動除外 <span class="flow-tag auto">深夜01:00 自動実行</span></h3>
+            <p><code>通話_除外リスト.txt</code> と照合し、家族やプライベートな通話は文字起こしせずに退避フォルダへ安全に移動します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">🎙️</div>
+          <div class="flow-body">
+            <h3>Step 2：無分割・全文文字起こし＆要約生成 <span class="flow-tag auto">深夜01:00 自動実行</span></h3>
+            <p>Antigravity（Gemini 3.8）が原音声をそのまま聴取。相づちや末尾の挨拶まで省略なしの「録音全文」と、要点・決定事項・TODOを整理した「通話要約」を同時生成します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">📅</div>
+          <div class="flow-body">
+            <h3>Step 3：Googleカレンダーへ「アポ」と「宿題」を自動登録 <span class="flow-tag auto">深夜01:00 自動実行</span></h3>
+            <p>会話内の日時約束は「時間指定予定」として登録。顧客から頼まれた調べ物・見積作成などの宿題は、他メンバーに見えない「非公開の終日予定」として登録します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-icon">🗂️</div>
+          <div class="flow-body">
+            <h3>Step 4：読み戻し検証＆元音声の整理 <span class="flow-tag auto">深夜01:00 自動実行</span></h3>
+            <p>保存ファイルが0バイトでないか・最後まで文字起こしされているかを検査（5つの品質ゲート）し、合格した元音声だけを <code>文字起こし済み/</code> へ移動して完了します。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar Visual Mock -->
+      <div class="cal-mock-grid">
+        <div class="cal-card public">
+          <div class="cal-badge-row">
+            <span class="cal-type">🕒 アポイント（商談・訪問・打合せ）</span>
+            <span class="cal-vis">時間指定・通常公開</span>
+          </div>
+          <div class="cal-title">14:00 - 15:00 【訪問】株式会社サンプル商事 佐藤様 - 新プランご提案</div>
+          <div class="cal-desc">【対象】株式会社サンプル商事 佐藤様
+【内容】現行プラン見直しと新端末お見積りのご説明
+【元通話】通話要約ファイルへのリンク</div>
+        </div>
+        <div class="cal-card private">
+          <div class="cal-badge-row">
+            <span class="cal-type">🔒 お客様からの宿題（やること）</span>
+            <span class="cal-vis">終日予定・非公開（Private）</span>
+          </div>
+          <div class="cal-title">【宿題】株式会社サンプル商事 佐藤様 - 複数台シミュレーター作成・送付</div>
+          <div class="cal-desc">※社内メンバーには「予定あり（非公開）」とだけ表示され、あなただけに以下のメモが見えます：
+【やること（宿題事項）】
+- 5Gプラン切替時の差額シミュレーション表を作成
+- 複数台割賦のExcelフォーマットをメール送付</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 5分で終わる導入3ステップ -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <h2 class="section-title">初心者でも5分で完了！導入3ステップ</h2>
+      </div>
+      <p class="section-desc">
+        プログラミング知識は不要です。以下の3ステップを順番に進めるだけで今日から稼働します。
+      </p>
+
+      <h3 style="font-size:15.5px; font-weight:800; margin-bottom:6px;">Step 1：Googleドライブにフォルダを作る（所要1分）</h3>
+      <p style="font-size:13.5px; color:var(--text-muted);">
+        パソコンのGoogleドライブ（マイドライブ直下など）に作業用フォルダを作り、以下の構成でフォルダを用意します。（Step 3の初回プロンプトでAIに自動作成させることもできます）
+      </p>
+      <div class="folder-tree">00_Inbox/ <span class="comment">（← ワークスペースの親フォルダ。名前は任意でOK）</span>
+├── 音声データ/
+│   ├── <span class="hl-in">未文字起こし/</span>          <span class="comment">★スマホから録音ファイル（.m4a等）を入れる場所</span>
+│   └── 文字起こし済み/        <span class="comment">（完了した元音声が自動で移動される保管庫）</span>
+│       ├── 通話音声/
+│       └── 録音データ/
+└── _brain/
+    ├── <span class="hl-out">録音全文/</span>              <span class="comment">★一言一句すべての全文テキストが保存される場所</span>
+    ├── <span class="hl-out">通話要約/</span>              <span class="comment">★要約・決定事項・TODOが保存される場所</span>
+    ├── 通話_除外リスト.txt     <span class="comment">（家族・私用など文字起こししない相手の名前を1行1名で記載）</span>
+    └── 運用/
+        ├── 夜間文字起こし運用ルール.md
+        └── 外部ソース台帳/
+            └── CALENDAR_MATCH_INDEX.jsonl <span class="comment">（カレンダー登録の履歴台帳）</span></div>
+
+      <h3 style="font-size:15.5px; font-weight:800; margin:18px 0 6px;">Step 2：AntigravityでGoogleカレンダー連携をONにする（所要1分）</h3>
+      <p style="font-size:13.5px; color:var(--text-muted);">
+        1. Google Antigravityを起動し、上記で作ったフォルダ（<code>00_Inbox</code>）をワークスペースとして開きます。<br>
+        2. チャット欄で <code>/plugin</code> と入力（またはプラグイン一覧を開く）し、<strong>Google Calendar（gcalendar）</strong> プラグインを有効化してGoogleアカウントと連携します。
+      </p>
+
+      <h3 style="font-size:15.5px; font-weight:800; margin:18px 0 6px;">Step 3：コピペ用プロンプトを貼り付ける（所要3分）</h3>
+      <p style="font-size:13.5px; color:var(--text-muted);">
+        下のセクションにある<strong>3つのプロンプト</strong>を順番にワンタップコピーしてAntigravityへ貼り付ければセットアップ完了です！
+      </p>
+    </section>
+
+    <!-- Section 3: コピペ用プロンプト一式 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <h2 class="section-title">ワンタップで使える！コピペ用プロンプト一式</h2>
+      </div>
+      <p class="section-desc">
+        下の入力欄にあなたの名前（苗字やフルネーム）を入れると、プロンプト内の話者名・設定があなた専用に自動書き換えされます。
+      </p>
+
+      <!-- Interactive Name Input -->
+      <div class="customizer-box">
+        <label for="userNameInput">✏️ あなたの名前（話者ラベル用）を入力してください：</label>
+        <div class="customizer-row">
+          <input type="text" id="userNameInput" class="customizer-input" placeholder="例：山田 太郎" value="山田" oninput="updatePrompts()" />
+        </div>
+        <div class="customizer-hint">※ここに入力した名前が、下の3つのプロンプト内の話者名にリアルタイム反映されます。</div>
+      </div>
+
+      <!-- Prompt 1 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-title-wrap">
+            <span class="prompt-badge">プロンプト ①</span>
+            <span class="prompt-title">初期フォルダ＆運用ルール正本の自動セットアップ指示（最初に1回実行）</span>
+          </div>
+          <button class="btn-copy" onclick="copyPrompt('prompt1', this)">📋 ワンタップでコピー</button>
+        </div>
+        <pre class="prompt-pre" id="prompt1"></pre>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-title-wrap">
+            <span class="prompt-badge">プロンプト ②</span>
+            <span class="prompt-title">今すぐ手動でテスト実行するプロンプト（動作確認用）</span>
+          </div>
+          <button class="btn-copy" onclick="copyPrompt('prompt2', this)">📋 ワンタップでコピー</button>
+        </div>
+        <pre class="prompt-pre" id="prompt2"></pre>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-title-wrap">
+            <span class="prompt-badge">プロンプト ③</span>
+            <span class="prompt-title">毎夜01:00に全自動実行させるスケジュール登録プロンプト</span>
+          </div>
+          <button class="btn-copy" onclick="copyPrompt('prompt3', this)">📋 ワンタップでコピー</button>
+        </div>
+        <pre class="prompt-pre" id="prompt3"></pre>
+      </div>
+    </section>
+
+    <!-- Section 4: 5つの品質ゲート -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <h2 class="section-title">なぜ「途中切れ」や「保存ミス」が起きないのか？（5つの品質ゲート）</h2>
+      </div>
+      <p class="section-desc">
+        AIにただ「文字起こしして」と頼むだけでは、長い音声の後半を勝手に省略されたり、空ファイルのまま完了扱いになる事故が起きます。本ルールでは以下の5項目すべてに合格した音声だけを完了扱いにする安全設計を組み込んでいます。
+      </p>
+
+      <table class="qg-table">
+        <thead>
+          <tr>
+            <th style="width:34%;">品質ゲート項目</th>
+            <th>チェック内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="qg-code">AUDIO_ID_MATCH = true</span></td>
+            <td>元音声ファイル名・通話相手名・録音日時が1対1で完全に一致していること。</td>
+          </tr>
+          <tr>
+            <td><span class="qg-code">TRANSCRIPT_COMPLETE = true</span></td>
+            <td>冒頭から終端まで通話全区間を無分割で網羅していること（途中の要約代用や中略は不合格）。</td>
+          </tr>
+          <tr>
+            <td><span class="qg-code">TERMINAL_VERIFIED = true</span></td>
+            <td>末尾の発話（「失礼します」「お疲れ様です」等の終了挨拶）が実音声の終端と一致していること。</td>
+          </tr>
+          <tr>
+            <td><span class="qg-code">PERSISTENCE_VERIFIED = true</span></td>
+            <td>Googleドライブへ保存した直後にファイルを再読込（読み戻し）し、0バイトや文字化けでないことを確認すること。</td>
+          </tr>
+          <tr>
+            <td><span class="qg-code">CALENDAR_SYNC_VERIFIED = true</span></td>
+            <td>次回アポ（時間枠予定）および顧客からの宿題（非公開の終日予定）が漏れなくカレンダー登録・台帳記録されていること。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 5: よくある質問 -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <h2 class="section-title">よくある質問（FAQ）・運用のコツ</h2>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">10分以上の長い通話や商談録音でも、事前に分割しなくて大丈夫ですか？</div>
+        <div class="faq-a">
+          はい、分割不要です。10分を超える長尺音声でも、無分割のまま一括投入して冒頭から末尾の挨拶まで1文字も欠落せずに取得できることを実証済みです。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">社内共有のGoogleカレンダーを使っていますが、お客様からの細かい宿題やメモを他の社員に見られたくありません。</div>
+        <div class="faq-a">
+          お客様からの宿題（やること）は、公開設定を「非公開（<code>private</code>）」にした終日予定として自動登録されます。社内メンバーの画面には「予定あり（非公開）」としか表示されず、あなた本人のカレンダー画面でのみ「【宿題】〇〇様 - 用件」というタイトルと箇条書きのTODOリストが確認できます。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">家族やプライベートの通話録音が混ざってしまったらどうなりますか？</div>
+        <div class="faq-a">
+          <code>_brain/通話_除外リスト.txt</code> に家族やプライベート相手の登録名を書いておけば、AIが文字起こしを行う前に自動検知し、文字起こしやカレンダー登録をスキップして <code>業務外除外_YYYYMMDD/</code> フォルダへ安全に退避します。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">スマホの録音ファイル名はどんな形式にすればいいですか？</div>
+        <div class="faq-a">
+          スマートフォンの標準通話録音形式（例：<code>通話 相手名_YYMMDD_HHMMSS.m4a</code> や <code>音声 YYMMDD_HHMMSS.m4a</code>）のままで問題ありません。文字起こし補助テキスト（.txt）がある場合も一緒に入れておけば、固有名詞や数字の照合に自動活用されます。
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function buildPrompt1(name) {
+      const speaker = name.trim() || "山田";
+      return `現在のワークスペースに、音声の全自動文字起こし・要約・Googleカレンダー自動連携のためのフォルダ構成と運用ルール正本をセットアップしてください。
+
+【1. 作成するフォルダと初期ファイル】
+- 音声データ/未文字起こし/
+- 音声データ/文字起こし済み/通話音声/
+- 音声データ/文字起こし済み/録音データ/
+- _brain/録音全文/
+- _brain/通話要約/
+- _brain/運用/外部ソース台帳/
+- _brain/通話_除外リスト.txt （未作成の場合のみ空ファイルとして作成）
+- _brain/運用/夜間文字起こし運用ルール.md （以下の正本ルール全文をそのまま書き込む）
+
+---
+# 夜間文字起こし＆カレンダー自動連携 運用ルール（正本）
+
+## 1．基本方針（無分割ファースト ＋ アポ・宿題自動カレンダー連携）
+- **無分割全文文字起こし＋要約の一括作成**：原音声を分割せずに直接聴取し、冒頭から終端（通話終了・挨拶）まで一言一句の「逐語全文」と「通話要約（概要・重要事項・決定事項・TODO・次回予定）」を一括作成する。要約による中略・相づちの省略・発話統合は禁止する。
+- **Whisper系ツールの使用禁止**：Whisper / faster-whisper / whisper.cpp 等の外部ASRは一切使用せず、Antigravity内蔵のマルチモーダル音声認識を直接使用する。
+- **商談・訪問アポイントは時間枠予定として自動登録**：会話内容から次回アポイント（訪問、商談、納品、打合せ、連絡等）が検知された場合、Googleカレンダーへ時間枠付きの予定として自動登録する。
+- **お客様からの宿題（やること）は非公開の終日予定として自動登録**：顧客から依頼された宿題・TODO・提出物等のアクションアイテムは、他のメンバーに内容が見えないよう非公開（Private: \`--visibility private\`）設定の「見出しをタイトルとした終日予定」として登録し、メモ欄にやることを全て箇条書きで記載する。
+- **補助テキストの活用**：同名のテキスト（.txt）が存在する場合は固有名詞・数字の照合に活用し、存在しない場合も音声単独で完結させる。
+- **業務外除外の徹底**：\`_brain/通話_除外リスト.txt\` に記載された相手の音声は文字起こし対象から除外し、原本を \`音声データ/文字起こし済み/通話音声/YYYY-MM/業務外除外_YYYYMMDD/\` へ安全退避する。同名・類似氏名の勝手な名寄せは禁止する。
+
+## 2．標準処理フロー
+1. **検知と除外判定**：
+   - \`音声データ/未文字起こし/\` 内の全音声を検知し、\`_brain/通話_除外リスト.txt\` に合致する音声は \`業務外除外_YYYYMMDD/\` へ移動する。
+2. **無分割全文文字起こし＋要約作成**：
+   - 残りの業務通話を直接聴取し、逐語全文（話者分離: ${speaker} / 相手名）および通話要約（概要・重要事項・決定事項・TODO・次回予定）を生成する。
+3. **正式保存と読み戻し検証**：
+   - 全文：\`_brain/録音全文/通話 <相手名>_<日時>.md\`（対面録音は \`音声 <日時>.md\`）に保存。
+   - 要約：\`_brain/通話要約/通話 <相手名>_<日時>_要約.md\`（対面録音は \`音声 <日時>_要約.md\`）に保存。
+   - 保存直後にファイルを再読込し、0バイトや文字化けがないことを検証する。
+4. **アポイント・宿題検知とカレンダー自動登録**：
+   - **アポイント（商談・訪問・打合せ）**：
+     - 予定種別：時間指定イベント（所要時間未指定時は標準60分、納品サポート等は90分、架電確認は15分）
+     - タイトル：\`【<種別>】<相手名または社名> - <用件>\`（種別：\`【商談】\`, \`【訪問】\`, \`【納品】\`, \`【打合せ】\`, \`【連絡】\`。未確定時は先頭に \`【仮・要確認】\`）
+     - 説明欄：対象顧客名、用件詳細、通話要約パス、決定事項の抜粋。
+   - **お客様からの宿題（やること）**：
+     - 予定種別：終日予定（All-day event）
+     - 公開設定：非公開（Private: \`--visibility private\`）を必須標準とする。
+     - 期日：会話内で指定があればその期日、未指定時は翌営業日（土日祝の場合は週明け月曜日）。
+     - タイトル：\`【宿題】<顧客名/相手先> - <用件の見出し>\`
+       （例：\`【宿題】株式会社サンプル商事 佐藤様 - 複数台割賦フォーマット確認・送付\`）
+     - 説明欄（メモ）：以下のフォーマットでやることを全て箇条書きにする。
+       \`\`\`text
+       【顧客・相手先】<会社名 / 担当者名>
+       【発生日・元通話】<録音日時>（通話要約: _brain/通話要約/通話 ○○_要約.md）
+
+       【やること（宿題事項）】
+       - ○○○○
+       - ○○○○
+
+       【背景・補足】
+       ・会話でのやり取り要点
+       \`\`\`
+   - 登録結果を \`_brain/運用/外部ソース台帳/CALENDAR_MATCH_INDEX.jsonl\` へ追記する。
+5. **原本移動（アーカイブ）**：
+   - 5つの品質ゲートすべてに合格した音声原本のみ \`音声データ/文字起こし済み/\` 配下（\`通話音声/YYYY-MM/\` または \`録音データ/YYYY-MM/\`）へ移動し、\`未文字起こし/\` の残数0件を確認して完了する。
+
+## 3．品質判定基準（Quality Gates）
+- \`AUDIO_ID_MATCH = true\`：ファイル名・相手名・日時の完全一致。
+- \`TRANSCRIPT_COMPLETE = true\`：冒頭から終端までの通話全区間を網羅（途中終了・要約代用は不合格）。
+- \`TERMINAL_VERIFIED = true\`：末尾の発話（「失礼します」等）が実音声と一致。
+- \`PERSISTENCE_VERIFIED = true\`：保存後の即時読み戻しによる実体確認（0byte排除）。
+- \`CALENDAR_SYNC_VERIFIED = true\`：アポイント（時間指定）および顧客宿題（非公開終日予定）の登録・台帳反映確認（該当なしの場合は skipped と記録）。
+---`;
+    }
+
+    function buildPrompt2(name) {
+      return `_brain/運用/夜間文字起こし運用ルール.md を読み、現在「音声データ/未文字起こし/」に入っている音声ファイルに対して、ルール通りの無分割全文文字起こし・通話要約作成・読み戻し検証・Googleカレンダーへのアポイント（時間指定）＆お客様からの宿題（非公開の終日予定・箇条書き）登録・元音声の「文字起こし済み/」への整理を実行してください。
+完了後、5つの品質ゲート（Quality Gates）の判定結果を一覧で報告してください。`;
+    }
+
+    function buildPrompt3(name) {
+      return `毎日深夜01:00（日本時間）に以下のタスクを自動実行するスケジュール（Automation）を作成してください。
+
+【スケジュール実行内容】
+1. \`_brain/運用/夜間文字起こし運用ルール.md\` を読む。
+2. \`音声データ/未文字起こし/\` 内の全音声を確認する（0件の場合は何もせず終了）。
+3. \`_brain/通話_除外リスト.txt\` に合致する音声は \`音声データ/文字起こし済み/通話音声/YYYY-MM/業務外除外_YYYYMMDD/\` へ退避する。
+4. 残りの業務音声を無分割で直接聴取し、冒頭から終端までの逐語全文（\`_brain/録音全文/\`）と通話要約（\`_brain/通話要約/\`）を作成して読み戻し検証を行う。
+5. 会話内容から次回アポイントがあれば時間枠予定として、顧客からの宿題（やること）があれば非公開（private）の終日予定（タイトルは見出し、メモ欄に箇条書き）としてGoogleカレンダーへ自動登録し、\`_brain/運用/外部ソース台帳/CALENDAR_MATCH_INDEX.jsonl\` に記録する。
+6. 5つの品質ゲート合格後、元音声を \`音声データ/文字起こし済み/\` へ移動し、\`未文字起こし/\` の残数0件を確認して完了する。`;
+    }
+
+    function updatePrompts() {
+      const name = document.getElementById('userNameInput').value;
+      document.getElementById('prompt1').textContent = buildPrompt1(name);
+      document.getElementById('prompt2').textContent = buildPrompt2(name);
+      document.getElementById('prompt3').textContent = buildPrompt3(name);
+    }
+
+    async function copyPrompt(id, btn) {
+      const text = document.getElementById(id).textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      const original = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = '✅ コピーしました！';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = original;
+      }, 2000);
+    }
+
+    updatePrompts();
+  </script>
+</body>
+</html>
